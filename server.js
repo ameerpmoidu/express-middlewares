@@ -4,13 +4,13 @@ const express = require('express');
 
 const User = require('./models/user')
 var path = require('path');
-
+const {logger}=require('./middlewares/logEvents')
 const mongoose=require('mongoose');
 const dotenv=require("dotenv")
 const bodyParser=require('body-parser')
 const app = express();
 dotenv.config();
-
+app.use(logger)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(path.resolve(__dirname, 'public')));
